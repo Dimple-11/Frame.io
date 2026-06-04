@@ -1,0 +1,9 @@
+{
+  "name": "frontend-workspace",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix Url-generation run dev",
+    "build": "npm --prefix Url-generation run build",
+    "lint": "npm --prefix Url-generation run lint"
+  }
+}
