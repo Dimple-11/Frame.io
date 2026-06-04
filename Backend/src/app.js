@@ -35,6 +35,14 @@ const upload = multer({
     }
 });
 
+app.get("/", (req, res) => {
+    res.status(200).json({
+        message: "Frame.io API is running.",
+        health: "/health",
+        posts: "/posts"
+    });
+});
+
 app.get("/health", (req, res) => {
     res.status(200).json({ status: "ok" });
 });

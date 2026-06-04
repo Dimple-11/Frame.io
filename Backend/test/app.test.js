@@ -25,6 +25,17 @@ test("GET /health reports that the API is available", async () => {
     });
 });
 
+test("GET / describes the available API endpoints", async () => {
+    await withServer(async (baseUrl) => {
+        const response = await fetch(baseUrl);
+        const body = await response.json();
+
+        assert.equal(response.status, 200);
+        assert.equal(body.message, "Frame.io API is running.");
+        assert.equal(body.health, "/health");
+    });
+});
+
 test("POST /create-post rejects requests without an image", async () => {
     await withServer(async (baseUrl) => {
         const response = await fetch(`${baseUrl}/create-post`, {
